@@ -27,6 +27,10 @@ final class Model
     public function __construct(Type $type, array $groups = null, array $options = null)
     {
         $this->type = $type;
+        if($groups !== null) {
+            $groups = array_unique($groups);
+            sort($groups, SORT_STRING);
+        }
         $this->groups = $groups;
         $this->options = $options;
     }
